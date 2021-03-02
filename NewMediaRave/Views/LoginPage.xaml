@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="NewMediaRave.Views.LoginPage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content xmlns="http://xamarin.com/schemas/2014/forms">
+        <StackLayout x:Name="MasterStack">
+
+            <StackLayout x:Name="LogoIconStack" VerticalOptions="FillAndExpand">
+                <Label x:Name="lbl_NoInternet" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="Red"/>
+                <Image x:Name="MediaRaveLogo" Source="MediaRaveLogo.png" Margin="10, 30, 10, 0"/>
+            </StackLayout>
+
+            <StackLayout x:Name="LoginStack" VerticalOptions="StartAndExpand">
+                <StackLayout.Padding>
+                    <OnIdiom x:TypeArguments="Thickness">
+                        <OnIdiom.Phone>20,0,20,10</OnIdiom.Phone>
+                        <!--Padding for login info. fields are left, top, right, bottom. K-->
+                        <!--<OnIdiom.Tablet></OnIdiom.Tablet> in case we decide to implement this later. K-->
+                    </OnIdiom>
+                </StackLayout.Padding>
+
+
+
+                <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+                    <Label x:Name="Lbl_UserName" Text="Username" />
+                    <Entry x:Name="Entry_Username" Placeholder="Username" />
+                    <Label x:Name="Lbl_Password" Text="Pasword" />
+                    <Entry x:Name="Entry_Password" Placeholder="Password" />
+                    <Button x:Name="Btn_Signin" Text= "Sign In" Clicked="SignInProcedure" />
+
+                </StackLayout>
+
+
+                <StackLayout Margin="20,35,20,20">
+                    <Entry x:Name="nameEntry"
+               Placeholder="Enter name" />
+                    <Entry x:Name="ageEntry"
+               Placeholder="Enter age" />
+                    <Button Text="Add to Database"
+                Clicked="OnButtonClicked" />
+                    <CollectionView x:Name="collectionView">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Label Text="{Binding Name}"
+                               FontSize="Medium" />
+                                    <Label Text="{Binding Age}"
+                               TextColor="Silver"
+                               FontSize="Small" />
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
